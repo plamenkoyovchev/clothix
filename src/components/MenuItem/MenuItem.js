@@ -1,16 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import './MenuItem.scss';
+import "./MenuItem.scss";
 
-const MenuItem = ({ title }) => {
-    return (
-        <div className="menu-item">
-            <div className="content">
-                <h1 className="title">{title}</h1>
-                <span className="subtitle">SHOP NOW</span>
-            </div>
-        </div>
-    );
-}
+const MenuItem = ({ title, imageUrl, size }) => {
+  return (
+    <div
+      className={`menu-item ${size}`}
+      style={{ backgroundImage: `url(${imageUrl})` }}
+    >
+      <div className="content">
+        <h1 className="title">{title}</h1>
+        <span className="subtitle">SHOP NOW</span>
+      </div>
+    </div>
+  );
+};
 
 export default MenuItem;
