@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/clothix/static/css/main.4254c789.chunk.css",
+    "main.css": "/clothix/static/css/main.d2c316a4.chunk.css",
     "main.js": "/clothix/static/js/main.decf8235.chunk.js",
     "main.js.map": "/clothix/static/js/main.decf8235.chunk.js.map",
     "runtime-main.js": "/clothix/static/js/runtime-main.668cec87.js",
@@ -8,14 +8,14 @@
     "static/js/2.7c0e2078.chunk.js": "/clothix/static/js/2.7c0e2078.chunk.js",
     "static/js/2.7c0e2078.chunk.js.map": "/clothix/static/js/2.7c0e2078.chunk.js.map",
     "index.html": "/clothix/index.html",
-    "precache-manifest.2500167b40c5df5bdb25b8127288f63c.js": "/clothix/precache-manifest.2500167b40c5df5bdb25b8127288f63c.js",
+    "precache-manifest.c9a3d33cf2b896a8e77a69a9f1b16bb7.js": "/clothix/precache-manifest.c9a3d33cf2b896a8e77a69a9f1b16bb7.js",
     "service-worker.js": "/clothix/service-worker.js",
-    "static/css/main.4254c789.chunk.css.map": "/clothix/static/css/main.4254c789.chunk.css.map"
+    "static/css/main.d2c316a4.chunk.css.map": "/clothix/static/css/main.d2c316a4.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.668cec87.js",
     "static/js/2.7c0e2078.chunk.js",
-    "static/css/main.4254c789.chunk.css",
+    "static/css/main.d2c316a4.chunk.css",
     "static/js/main.decf8235.chunk.js"
   ]
 }
