@@ -5,13 +5,13 @@ import {Route, Switch} from 'react-router-dom';
 import './App.scss';
 
 import HomePage from './pages/HomePage/HomePage';
-import HatsPage from './pages/HomePage/Categories/HatsPage/HatsPage';
+import Shop from './containers/Shop/Shop';
 
 function App() {
   return (
     <div>
       <Switch>
-        <Route path="/shop/hats" component={HatsPage} />
+        <Route path="/shop" component={Shop} />
         <Route path="/" component={HomePage} />
       </Switch>
     </div>
