@@ -34,12 +34,16 @@ class SignIn extends Component {
     this.setState({ email: "", password: "" });
   };
 
-  handleChangeInput = event => {
-    const { name, value } = event.target;
+  handleChangeInput = (event, inputId) => {
+    const { value } = event.target;
 
-    //TODO: set new form state without mutating the old form
+    const formToUpdate = { ...this.state.authForm };
+    const elementToUpdate = { ...formToUpdate[inputId] };
 
-    this.setState({ [name]: value });
+    elementToUpdate.value = value;
+    formToUpdate[inputId] = elementToUpdate;
+
+    this.setState({ authForm: formToUpdate });
   };
 
   getFormInputs = () => {
@@ -50,7 +54,11 @@ class SignIn extends Component {
     }
 
     return formConfig.map(({ id, ...otherProps }) => (
-      <Input key={id} {...otherProps} changed={this.handleChangeInput} />
+      <Input
+        key={id}
+        {...otherProps}
+        changed={event => this.handleChangeInput(event, id)}
+      />
     ));
   };
 
