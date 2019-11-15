@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./SignIn.scss";
 
 import Input from "../../UI/Input/Input";
+import Button from "../../UI/Button/Button";
 
 class SignIn extends Component {
   constructor(props) {
@@ -74,9 +75,11 @@ class SignIn extends Component {
 
     return (
       <div className="SignIn">
-        <h3> Sign In if you already have an account </h3>
+        <h2 className="title">I already have an account</h2>
+        <p className="sub-title">Sign in with your email and password</p>
         <form onSubmit={this.handleFormSubmit}>
-          {formInputs} <button type="submit"> Sign In </button>
+          {formInputs}
+          <Button type="submit">Sign In</Button>
         </form>
       </div>
     );
