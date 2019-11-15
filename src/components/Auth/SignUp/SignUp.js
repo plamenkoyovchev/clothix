@@ -10,7 +10,7 @@ class SignUp extends Component {
   }
 
   render() {
-    return <div>Sign Up</div>;
+    return <div className="SignUp"> Sign Up Component</div>;
   }
 }
 
