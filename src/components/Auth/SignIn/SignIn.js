@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 
 import "./SignIn.scss";
 
@@ -31,33 +33,56 @@ class SignIn extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    this.setState({ email: "", password: "" });
+    this.setState({
+      email: "",
+      password: ""
+    });
   };
 
   handleChangeInput = (event, inputId) => {
-    const { value } = event.target;
+    const {
+      value
+    } = event.target;
 
-    const formToUpdate = { ...this.state.authForm };
-    const elementToUpdate = { ...formToUpdate[inputId] };
+    const formToUpdate = {
+      ...this.state.authForm
+    };
+    const elementToUpdate = {
+      ...formToUpdate[inputId]
+    };
 
     elementToUpdate.value = value;
     formToUpdate[inputId] = elementToUpdate;
 
-    this.setState({ authForm: formToUpdate });
+    this.setState({
+      authForm: formToUpdate
+    });
   };
 
   getFormInputs = () => {
-    const { authForm } = this.state;
+    const {
+      authForm
+    } = this.state;
     const formConfig = [];
     for (const key in authForm) {
-      formConfig.push({ id: key, ...authForm[key] });
+      formConfig.push({
+        id: key,
+        ...authForm[key]
+      });
     }
 
-    return formConfig.map(({ id, ...otherProps }) => (
-      <Input
-        key={id}
-        {...otherProps}
-        changed={event => this.handleChangeInput(event, id)}
+    return formConfig.map(({
+      id,
+      ...otherProps
+    }) => ( <
+      Input key = {
+        id
+      } {
+        ...otherProps
+      }
+      changed = {
+        event => this.handleChangeInput(event, id)
+      }
       />
     ));
   };
@@ -65,14 +90,19 @@ class SignIn extends Component {
   render() {
     const formInputs = this.getFormInputs();
 
-    return (
-      <div className="SignIn">
-        <h3>Sign In if you already have an account</h3>
-        <form onSubmit={this.handleFormSubmit}>
-          {formInputs}
-          <button type="submit">Sign In</button>
-        </form>
-      </div>
+    return ( <
+      div className = "SignIn" >
+      <
+      h3 > Sign In
+      if you already have an account < /h3> <
+      form onSubmit = {
+        this.handleFormSubmit
+      } > {
+        formInputs
+      } <
+      button type = "submit" > Sign In < /button> <
+      /form> <
+      /div>
     );
   }
 }
