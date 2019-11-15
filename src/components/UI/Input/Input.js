@@ -4,9 +4,10 @@ import "./Input.scss";
 
 const Input = ({ type, name, value, required, label, changed }) => {
   return (
-    <div>
-      <label>{label}</label>
+    <div className="group">
+      <label className="form-input-label">{label}</label>
       <input
+        className="form-input"
         type={type}
         name={name}
         value={value}
