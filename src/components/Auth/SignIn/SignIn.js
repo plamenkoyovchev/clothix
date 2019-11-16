@@ -5,6 +5,8 @@ import "./SignIn.scss";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
 
+import { signInWithGoogle } from '../../../shared/utils/firebase-utils';
+
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -80,6 +82,7 @@ class SignIn extends Component {
         <form onSubmit={this.handleFormSubmit}>
           {formInputs}
           <Button type="submit">Sign In</Button>
+          <Button type='button' clicked={signInWithGoogle}>Sign with Google</Button>
         </form>
       </div>
     );
