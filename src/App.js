@@ -12,7 +12,7 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import { auth } from './shared/utils/firebase-utils';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({ displayName: 'ANONYMOUS' });
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(user => setCurrentUser(user));
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div>
-      <Header username={currentUser.displayName} />
+      <Header currentUser={currentUser} />
       <Switch>
         <Route path="/auth" component={AuthPage} />
         <Route path="/shop" component={Shop} />
