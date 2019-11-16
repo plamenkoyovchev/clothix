@@ -1,3 +1,13 @@
 .SignUp {
-    width: 30vw;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+
+    & .title {
+        margin: 10px 0;
+    }
+
+    & .sub-title {
+        font-size: 18px;
+    }
 }
