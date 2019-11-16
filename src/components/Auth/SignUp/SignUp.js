@@ -4,6 +4,11 @@ import "./SignUp.scss";
 import Button from "../../UI/Button/Button";
 import Input from "../../UI/Input/Input";
 
+import {
+  auth,
+  createUserProfileDocument
+} from "../../../shared/utils/firebase-utils";
+
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -42,11 +47,39 @@ class SignUp extends Component {
     };
   }
 
-  handleFormSubmit = event => {
+  handleFormSubmit = async event => {
     event.preventDefault();
+    const { signUpForm } = this.state;
+    if (signUpForm.password.value !== signUpForm.confirmPassword.value) {
+      alert("Passwords don't match!");
+      return;
+    }
+
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        signUpForm.email.value,
+        signUpForm.password.value
+      );
+
+      const displayName = signUpForm.displayName.value;
+      createUserProfileDocument(user, { displayName });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  handleInputChange = (event, inputId) => {};
+  handleInputChange = (event, inputId) => {
+    const formToUpdate = { ...this.state.signUpForm };
+    const elementToUpdate = {
+      ...formToUpdate[inputId]
+    };
+
+    const { value } = event.target;
+    elementToUpdate.value = value;
+    formToUpdate[inputId] = elementToUpdate;
+
+    this.setState({ signUpForm: formToUpdate });
+  };
 
   getFromInputs = () => {
     const { signUpForm } = this.state;
