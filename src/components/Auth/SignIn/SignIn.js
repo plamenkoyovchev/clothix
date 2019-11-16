@@ -81,8 +81,10 @@ class SignIn extends Component {
         <p className="sub-title">Sign in with your email and password</p>
         <form onSubmit={this.handleFormSubmit}>
           {formInputs}
-          <Button type="submit">Sign In</Button>
-          <Button type='button' clicked={signInWithGoogle}>Sign with Google</Button>
+          <div className="sign-in-buttons">
+            <Button type="submit">Sign In</Button>
+            <Button type='button' isGoogleAuthBtn clicked={signInWithGoogle}>Sign with Google</Button>
+          </div>
         </form>
       </div>
     );

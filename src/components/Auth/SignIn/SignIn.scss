@@ -1,5 +1,5 @@
 .SignIn {
-    width: 30vw;
+    width: 360px;
     display: flex;
     flex-direction: column;
 
@@ -9,5 +9,10 @@
 
     & .sub-title {
         font-size: 18px;
+    }
+
+    .sign-in-buttons {
+        display: flex;
+        justify-content: space-between;
     }
 }

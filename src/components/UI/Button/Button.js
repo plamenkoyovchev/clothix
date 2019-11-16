@@ -2,9 +2,9 @@ import React from "react";
 
 import "./Button.scss";
 
-const Button = ({ children, clicked, ...otherProps }) => {
+const Button = ({ children, clicked, isGoogleAuthBtn, ...otherProps }) => {
   return (
-    <button className="Button" {...otherProps} onClick={clicked}>
+    <button className={`${isGoogleAuthBtn ? 'google-auth' : ''} Button`} {...otherProps} onClick={clicked}>
       {children}
     </button>
   );
