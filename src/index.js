@@ -6,7 +6,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <BrowserRouter basename="/clothix">
+  <BrowserRouter basename="/clothix/#">
     <App />
   </BrowserRouter>,
   document.getElementById("root")
