@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/images/crown.svg";
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({ username }) => {
   return (
     <div className="header">
       <Link to="/" className="logo-container">
@@ -20,6 +20,9 @@ const Header = () => {
         </Link>
         <Link to="/contact" className="navigation-item">
           CONTACT
+        </Link>
+        <Link to='/' className='navigation-item'>
+          HELLO, {username.toUpperCase()}!
         </Link>
       </div>
     </div>
