@@ -5,7 +5,7 @@ import "./SignIn.scss";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
 
-import { signInWithGoogle } from '../../../shared/utils/firebase-utils';
+import { signInWithGoogle, auth } from '../../../shared/utils/firebase-utils';
 
 class SignIn extends Component {
   constructor(props) {
@@ -31,9 +31,17 @@ class SignIn extends Component {
     };
   }
 
-  handleFormSubmit = event => {
+  handleFormSubmit = async event => {
     event.preventDefault();
-  };
+
+    const { authForm } = this.state;
+    try {
+      const credentials = await auth.signInWithEmailAndPassword(authForm.email.value, authForm.password.value);
+      console.log(credentials);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   handleChangeInput = (event, inputId) => {
     const { value } = event.target;
