@@ -38,15 +38,13 @@ class SignIn extends Component {
     }
   }
 
-  handleFormSubmit = async event => {
+  handleSignInFormSubmit = async event => {
     event.preventDefault();
 
     const { authForm } = this.state;
     try {
-      const credentials = await auth.signInWithEmailAndPassword(authForm.email.value, authForm.password.value);
-      console.log(credentials);
+      await auth.signInWithEmailAndPassword(authForm.email.value, authForm.password.value);
     } catch (error) {
-      console.error(error);
     }
   }
 
@@ -94,7 +92,7 @@ class SignIn extends Component {
       <div className="SignIn">
         <h2 className="title">I already have an account</h2>
         <p className="sub-title">Sign in with your email and password</p>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleSignInFormSubmit}>
           {formInputs}
           <div className="sign-in-buttons">
             <Button type="submit">Sign In</Button>
