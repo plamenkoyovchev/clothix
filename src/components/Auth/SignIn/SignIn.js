@@ -31,6 +31,13 @@ class SignIn extends Component {
     };
   }
 
+  signWithGoogle = async () => {
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+    }
+  }
+
   handleFormSubmit = async event => {
     event.preventDefault();
 
@@ -91,7 +98,7 @@ class SignIn extends Component {
           {formInputs}
           <div className="sign-in-buttons">
             <Button type="submit">Sign In</Button>
-            <Button type='button' isGoogleAuthBtn clicked={signInWithGoogle}>Sign with Google</Button>
+            <Button type='button' isGoogleAuthBtn clicked={this.signWithGoogle}>Sign with Google</Button>
           </div>
         </form>
       </div>
