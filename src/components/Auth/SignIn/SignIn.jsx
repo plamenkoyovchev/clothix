@@ -5,7 +5,7 @@ import "./SignIn.scss";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
 
-import { signInWithGoogle, auth } from '../../../shared/utils/firebase-utils';
+import { signInWithGoogle, auth } from "../../../shared/utils/firebase-utils";
 
 class SignIn extends Component {
   constructor(props) {
@@ -34,19 +34,20 @@ class SignIn extends Component {
   signWithGoogle = async () => {
     try {
       await signInWithGoogle();
-    } catch (error) {
-    }
-  }
+    } catch (error) {}
+  };
 
   handleSignInFormSubmit = async event => {
     event.preventDefault();
 
     const { authForm } = this.state;
     try {
-      await auth.signInWithEmailAndPassword(authForm.email.value, authForm.password.value);
-    } catch (error) {
-    }
-  }
+      await auth.signInWithEmailAndPassword(
+        authForm.email.value,
+        authForm.password.value
+      );
+    } catch (error) {}
+  };
 
   handleChangeInput = (event, inputId) => {
     const { value } = event.target;
@@ -96,7 +97,9 @@ class SignIn extends Component {
           {formInputs}
           <div className="sign-in-buttons">
             <Button type="submit">Sign In</Button>
-            <Button type='button' isGoogleAuthBtn clicked={this.signWithGoogle}>Sign with Google</Button>
+            <Button type="button" isGoogleAuthBtn clicked={this.signWithGoogle}>
+              Sign with Google
+            </Button>
           </div>
         </form>
       </div>

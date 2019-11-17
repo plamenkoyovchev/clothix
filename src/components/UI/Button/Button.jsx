@@ -4,7 +4,11 @@ import "./Button.scss";
 
 const Button = ({ children, clicked, isGoogleAuthBtn, ...otherProps }) => {
   return (
-    <button className={`${isGoogleAuthBtn ? 'google-auth' : ''} Button`} {...otherProps} onClick={clicked}>
+    <button
+      className={`${isGoogleAuthBtn ? "google-auth" : ""} Button`}
+      {...otherProps}
+      onClick={clicked}
+    >
       {children}
     </button>
   );

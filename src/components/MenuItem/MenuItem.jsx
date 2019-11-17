@@ -1,11 +1,10 @@
 import React from "react";
 
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 import "./MenuItem.scss";
 
 const MenuItem = ({ title, imageUrl, size, history, match, linkUrl }) => {
-
   const navigateToPage = () => {
     history.push(`${match.url}${linkUrl}`);
   };
