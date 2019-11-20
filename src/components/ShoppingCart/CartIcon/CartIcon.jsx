@@ -4,9 +4,9 @@ import { ReactComponent as ShoppingBag } from "../../../assets/images/shopping-b
 
 import "./CartIcon.scss";
 
-const CartIcon = () => {
+const CartIcon = ({ clicked }) => {
   return (
-    <div className="cart-icon">
+    <div className="cart-icon" onClick={clicked}>
       <ShoppingBag className="shopping-icon" />
       <span className="item-count">0</span>
     </div>

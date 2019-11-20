@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -8,8 +8,11 @@ import "./Header.scss";
 
 import { auth } from "../../../shared/utils/firebase-utils";
 import CartIcon from "../../ShoppingCart/CartIcon/CartIcon";
+import Cart from "../../ShoppingCart/Cart/Cart";
 
 const Header = ({ currentUser }) => {
+  const [shoppingCartVisible, setShoppingCartVisible] = useState(false);
+
   return (
     <div className="header">
       <Link to="/" className="logo-container">
@@ -31,8 +34,11 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
-        <CartIcon />
+        <CartIcon
+          clicked={() => setShoppingCartVisible(!shoppingCartVisible)}
+        />
       </div>
+      {shoppingCartVisible ? <Cart /> : null}
     </div>
   );
 };
