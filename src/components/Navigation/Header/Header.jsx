@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
 
 import { ReactComponent as Logo } from "../../../assets/images/crown.svg";
 import "./Header.scss";
@@ -10,9 +11,7 @@ import { auth } from "../../../shared/utils/firebase-utils";
 import CartIcon from "../../ShoppingCart/CartIcon/CartIcon";
 import Cart from "../../ShoppingCart/Cart/Cart";
 
-const Header = ({ currentUser }) => {
-  const [shoppingCartVisible, setShoppingCartVisible] = useState(false);
-
+const Header = ({ currentUser, cartVisible, toggleCartVisibility }) => {
   return (
     <div className="header">
       <Link to="/" className="logo-container">
@@ -34,19 +33,24 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
-        <CartIcon
-          clicked={() => setShoppingCartVisible(!shoppingCartVisible)}
-        />
+        <CartIcon clicked={toggleCartVisibility} />
       </div>
-      {shoppingCartVisible ? <Cart /> : null}
+      {cartVisible ? <Cart /> : null}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    cartVisible: state.cart.visible
   };
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleCartVisibility: () => dispatch(actions.toggleCartVisibility())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

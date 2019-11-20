@@ -1,3 +1,9 @@
 export {
     setCurrentUser
-} from './user';
+}
+from './user';
+
+export {
+    toggleCartVisibility
+}
+from './cart';
