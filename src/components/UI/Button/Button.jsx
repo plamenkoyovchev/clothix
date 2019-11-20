@@ -2,10 +2,18 @@ import React from "react";
 
 import "./Button.scss";
 
-const Button = ({ children, clicked, isGoogleAuthBtn, ...otherProps }) => {
+const Button = ({
+  children,
+  clicked,
+  inverted,
+  isGoogleAuthBtn,
+  ...otherProps
+}) => {
   return (
     <button
-      className={`${isGoogleAuthBtn ? "google-auth" : ""} Button`}
+      className={`${inverted ? "inverted" : ""} ${
+        isGoogleAuthBtn ? "google-auth" : ""
+      } Button`}
       {...otherProps}
       onClick={clicked}
     >
