@@ -15,11 +15,26 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_ITEM:
             return {
                 ...state,
-                cartItems: [...state.cartItems, action.itemToAdd]
+                cartItems: addItem(state.cartItems, action.itemToAdd)
             };
         default:
             return state;
     }
 }
+
+const addItem = (cartItems, itemToAdd) => {
+    const existingItem = cartItems.find(i => i.id === itemToAdd.id);
+    if (existingItem) {
+        const updatedCartItems = cartItems.map(
+            item =>
+                item.id === itemToAdd.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item);
+
+        return updatedCartItems;
+    }
+
+    return [...cartItems, { ...itemToAdd, quantity: 1 }];
+};
 
 export default cartReducer;
