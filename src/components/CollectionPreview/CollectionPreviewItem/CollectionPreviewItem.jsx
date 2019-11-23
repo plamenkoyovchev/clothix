@@ -1,10 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
 
 import "./CollectionPreviewItem.scss";
 
 import Button from "../../UI/Button/Button";
 
-const CollectionPreviewItem = ({ id, name, price, imageUrl }) => {
+const CollectionPreviewItem = ({ item, addItem }) => {
+  const { name, price, imageUrl } = item;
   return (
     <div className="CollectionPreviewItem">
       <div
@@ -17,9 +20,17 @@ const CollectionPreviewItem = ({ id, name, price, imageUrl }) => {
         <span className="name"> {name} </span>
         <span className="price"> {price} </span>
       </div>
-      <Button inverted>ADD TO CART</Button>
+      <Button clicked={() => addItem(item)} inverted>
+        ADD TO CART
+      </Button>
     </div>
   );
 };
 
-export default CollectionPreviewItem;
+const mapDispatchToProps = dispatch => {
+  return {
+    addItem: item => dispatch(actions.addItem(item))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CollectionPreviewItem);

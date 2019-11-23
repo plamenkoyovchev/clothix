@@ -1,9 +1,10 @@
 export {
     setCurrentUser
 }
-from './user';
+    from './user';
 
 export {
-    toggleCartVisibility
+    toggleCartVisibility,
+    addItem
 }
-from './cart';
+    from './cart';
