@@ -21,9 +21,7 @@ const Cart = ({ cartItems, history, dispatch }) => {
     <div className="Cart">
       <div className="cart-items">
         {cartItems.length > 0 ? (
-          cartItems.map(({ id, ...otherProps }) => (
-            <CartItem key={id} {...otherProps} />
-          ))
+          cartItems.map(item => <CartItem key={item.id} item={item} />)
         ) : (
           <h3 className="empty-cart-msg">Your cart is empty!</h3>
         )}
