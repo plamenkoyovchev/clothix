@@ -10,6 +10,7 @@ import Header from "./components/Navigation/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import Shop from "./containers/Shop/Shop";
 import AuthPage from "./pages/AuthPage/AuthPage";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 
 import { auth, createUserProfileDocument } from "./shared/utils/firebase-utils";
 
@@ -47,6 +48,7 @@ const App = props => {
             props.currentUser ? <Redirect to="/" /> : <AuthPage />
           }
         />
+        <Route path="/checkout" component={CheckoutPage} />
         <Route path="/shop" component={Shop} />
         <Route path="/" component={HomePage} />
       </Switch>
