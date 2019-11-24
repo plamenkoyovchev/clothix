@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
+import { createStructuredSelector } from "reselect";
+import { getCurrentUserSelector } from "../../../store/selectors/userSelector";
+import { cartVisibleSelector } from "../../../store/selectors/cartSelector";
 
 import { ReactComponent as Logo } from "../../../assets/images/crown.svg";
 import "./Header.scss";
@@ -40,12 +43,10 @@ const Header = ({ currentUser, cartVisible, toggleCartVisibility }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.user.currentUser,
-    cartVisible: state.cart.visible
-  };
-};
+const mapStateToProps = createStructuredSelector({
+  currentUser: getCurrentUserSelector,
+  cartVisible: cartVisibleSelector
+});
 
 const mapDispatchToProps = dispatch => {
   return {
