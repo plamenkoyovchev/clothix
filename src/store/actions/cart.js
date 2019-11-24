@@ -19,3 +19,10 @@ export const removeCheckoutItem = id => {
         itemToRemoveId: id
     };
 }
+
+export const removeItem = id => {
+    return {
+        type: actionTypes.REMOVE_ITEM,
+        itemToRemoveId: id
+    };
+}

@@ -17,6 +17,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 cartItems: addItem(state.cartItems, action.itemToAdd)
             };
+        case actionTypes.REMOVE_ITEM:
+            return {
+                ...state,
+                cartItems: removeItem(state.cartItems, action.itemToRemoveId)
+            };
         case actionTypes.REMOVE_CHECKOUT_ITEM:
             return {
                 ...state,
@@ -40,6 +45,19 @@ const addItem = (cartItems, itemToAdd) => {
     }
 
     return [...cartItems, { ...itemToAdd, quantity: 1 }];
+};
+
+const removeItem = (cartItems, itemToRemoveId) => {
+    const existingItem = cartItems.find(item => item.id === itemToRemoveId);
+    if (existingItem.quantity === 1) {
+        return cartItems.filter(item => item.id !== itemToRemoveId);
+    }
+
+    return cartItems.map(item =>
+        item.id === itemToRemoveId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+    );
 };
 
 export default cartReducer;
