@@ -18,7 +18,7 @@ const CollectionPreviewItem = ({ item, addItem }) => {
       />
       <div className="footer">
         <span className="name"> {name} </span>
-        <span className="price"> {price} </span>
+        <span className="price">$ {price} </span>
       </div>
       <Button clicked={() => addItem(item)} inverted>
         ADD TO CART
