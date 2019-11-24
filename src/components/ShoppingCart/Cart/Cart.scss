@@ -16,6 +16,10 @@
         display: flex;
         flex-direction: column;
         overflow-y: auto;
+
+        .empty-cart-msg {
+            margin: 20px auto;
+        }
     }
 
     button {
