@@ -4,7 +4,7 @@ import "./CheckoutItem.scss";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
 
-const CheckoutItem = ({ item, removeCheckoutItem }) => {
+const CheckoutItem = ({ item, removeCheckoutItem, addItem }) => {
   const { imageUrl, name, price, quantity } = item;
 
   return (
@@ -16,7 +16,9 @@ const CheckoutItem = ({ item, removeCheckoutItem }) => {
       <div className="quantity">
         <span className="arrow arrow-left">&#10094;</span>
         {quantity}
-        <span className="arrow arrow-right">&#10095;</span>
+        <span className="arrow arrow-right" onClick={() => addItem(item)}>
+          &#10095;
+        </span>
       </div>
       <div className="price">${price}</div>
       <div
@@ -31,7 +33,8 @@ const CheckoutItem = ({ item, removeCheckoutItem }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removeCheckoutItem: itemId => dispatch(actions.removeCheckoutItem(itemId))
+    removeCheckoutItem: itemId => dispatch(actions.removeCheckoutItem(itemId)),
+    addItem: item => dispatch(actions.addItem(item))
   };
 };
 
