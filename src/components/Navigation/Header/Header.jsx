@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
@@ -17,24 +17,36 @@ import Cart from "../../ShoppingCart/Cart/Cart";
 const Header = ({ currentUser, cartVisible, toggleCartVisibility }) => {
   return (
     <div className="header">
-      <Link to="/" className="logo-container">
+      <NavLink to="/" className="logo-container" activeClassName="active-link">
         <Logo className="logo" />
-      </Link>
+      </NavLink>
       <div className="navigation-items">
-        <Link to="/shop" className="navigation-item">
+        <NavLink
+          to="/shop"
+          className="navigation-item"
+          activeClassName="active-link"
+        >
           SHOP
-        </Link>
-        <Link to="/contact" className="navigation-item">
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className="navigation-item"
+          activeClassName="active-link"
+        >
           CONTACT
-        </Link>
+        </NavLink>
         {currentUser ? (
           <div className="navigation-item" onClick={() => auth.signOut()}>
             SIGN OUT
           </div>
         ) : (
-          <Link to="/auth" className="navigation-item">
+          <NavLink
+            to="/auth"
+            className="navigation-item"
+            activeClassName="active-link"
+          >
             SIGN IN
-          </Link>
+          </NavLink>
         )}
         <CartIcon clicked={toggleCartVisibility} />
       </div>
