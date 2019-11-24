@@ -10,9 +10,11 @@ import CollectionPreview from "../../components/CollectionPreview/CollectionPrev
 const Shop = ({ collections }) => {
   return (
     <div className="Shop">
-      {collections.map(({ id, ...otherCollectionProps }) => (
-        <CollectionPreview key={id} {...otherCollectionProps} />
-      ))}
+      {Object.keys(collections)
+        .map(key => collections[key])
+        .map(({ id, ...otherCollectionProps }) => (
+          <CollectionPreview key={id} {...otherCollectionProps} />
+        ))}
     </div>
   );
 };
