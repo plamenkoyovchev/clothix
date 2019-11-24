@@ -12,3 +12,10 @@ export const addItem = item => {
         itemToAdd: item
     };
 }
+
+export const removeCheckoutItem = id => {
+    return {
+        type: actionTypes.REMOVE_CHECKOUT_ITEM,
+        itemToRemoveId: id
+    };
+}

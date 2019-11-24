@@ -5,6 +5,7 @@ export {
 
 export {
     toggleCartVisibility,
-    addItem
+    addItem,
+    removeCheckoutItem
 }
     from './cart';

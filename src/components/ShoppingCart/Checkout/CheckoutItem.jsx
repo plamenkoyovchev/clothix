@@ -1,7 +1,10 @@
 import React from "react";
 import "./CheckoutItem.scss";
 
-const CheckoutItem = ({ item }) => {
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
+
+const CheckoutItem = ({ item, removeCheckoutItem }) => {
   const { imageUrl, name, price, quantity } = item;
 
   return (
@@ -12,9 +15,20 @@ const CheckoutItem = ({ item }) => {
       <div className="name">{name}</div>
       <div className="quantity">{quantity}</div>
       <div className="price">${price}</div>
-      <div className="remove-button">&#10007;</div>
+      <div
+        className="remove-button"
+        onClick={() => removeCheckoutItem(item.id)}
+      >
+        &#10007;
+      </div>
     </div>
   );
 };
 
-export default CheckoutItem;
+const mapDispatchToProps = dispatch => {
+  return {
+    removeCheckoutItem: itemId => dispatch(actions.removeCheckoutItem(itemId))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CheckoutItem);
