@@ -11,3 +11,8 @@ export const getShopCollectionsForPreview = createSelector(
     [getShopDataSelector],
     shopData => Object.keys(shopData).map(key => shopData[key])
 );
+
+export const getShopCollectionOverviewByCategory = (category) => createSelector(
+    [getShopDataSelector],
+    collections => collections[category]
+);
