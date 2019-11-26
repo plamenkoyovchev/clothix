@@ -1,22 +1,26 @@
 import React from "react";
-import "./Collection.scss";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { getShopCollectionOverviewByCategory } from "../../../store/selectors/shopSelector.js";
 
+import {
+  CollectionContainer,
+  CollectionTitle,
+  CollectionItems
+} from "./Collection.styles";
 import CollectionPreviewItem from "../CollectionPreview/CollectionPreviewItem/CollectionPreviewItem";
 
 const Collection = ({ collection }) => {
   return (
-    <div className="Collection">
-      <h1 className="title">{collection.title}</h1>
-      <div className="items">
+    <CollectionContainer>
+      <CollectionTitle>{collection.title}</CollectionTitle>
+      <CollectionItems>
         {collection.items.map(item => (
           <CollectionPreviewItem key={item.id} item={item} />
         ))}
-      </div>
-    </div>
+      </CollectionItems>
+    </CollectionContainer>
   );
 };
 
