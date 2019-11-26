@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 
-import "./SignIn.scss";
-
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
 
 import { signInWithGoogle, auth } from "../../../shared/utils/firebase-utils";
+import {
+  AuthContainer,
+  TitleContainer,
+  SubTitleContainer
+} from "../Auth.styles";
+import { SignInButtonsContainer } from "./SignIn.styles";
 
 class SignIn extends Component {
   constructor(props) {
@@ -90,19 +94,21 @@ class SignIn extends Component {
     const formInputs = this.getFormInputs();
 
     return (
-      <div className="SignIn">
-        <h2 className="title">I already have an account</h2>
-        <p className="sub-title">Sign in with your email and password</p>
+      <AuthContainer>
+        <TitleContainer>I already have an account</TitleContainer>
+        <SubTitleContainer>
+          Sign in with your email and password
+        </SubTitleContainer>
         <form onSubmit={this.handleSignInFormSubmit}>
           {formInputs}
-          <div className="sign-in-buttons">
+          <SignInButtonsContainer>
             <Button type="submit">Sign In</Button>
             <Button type="button" isGoogleAuthBtn clicked={this.signWithGoogle}>
               Sign with Google
             </Button>
-          </div>
+          </SignInButtonsContainer>
         </form>
-      </div>
+      </AuthContainer>
     );
   }
 }

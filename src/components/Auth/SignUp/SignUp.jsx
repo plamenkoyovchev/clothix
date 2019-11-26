@@ -9,6 +9,12 @@ import {
   createUserProfileDocument
 } from "../../../shared/utils/firebase-utils";
 
+import {
+  AuthContainer,
+  TitleContainer,
+  SubTitleContainer
+} from "../Auth.styles";
+
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -103,14 +109,14 @@ class SignUp extends Component {
   render() {
     const formInputs = this.getFromInputs();
     return (
-      <div className="SignIn">
-        <h2 className="title">I don't have an account</h2>
-        <p className="sub-title">Sign up with email and password</p>
+      <AuthContainer>
+        <TitleContainer>I don't have an account</TitleContainer>
+        <SubTitleContainer>Sign up with email and password</SubTitleContainer>
         <form onSubmit={this.handleFormSubmit}>
           {formInputs}
           <Button type="submit">Sign Up</Button>
         </form>
-      </div>
+      </AuthContainer>
     );
   }
 }
