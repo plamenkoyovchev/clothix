@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
@@ -8,50 +7,38 @@ import { getCurrentUserSelector } from "../../../store/selectors/userSelector";
 import { cartVisibleSelector } from "../../../store/selectors/cartSelector";
 
 import { ReactComponent as Logo } from "../../../assets/images/crown.svg";
-import "./Header.scss";
 
 import { auth } from "../../../shared/utils/firebase-utils";
 import CartIcon from "../../ShoppingCart/CartIcon/CartIcon";
 import Cart from "../../ShoppingCart/Cart/Cart";
+import {
+  HeaderContainer,
+  LogoContainer,
+  NavigationItemsContainer,
+  NavLinkOption,
+  NavLinkDiv
+} from "./Header.styles";
 
 const Header = ({ currentUser, cartVisible, toggleCartVisibility }) => {
   return (
-    <div className="header">
-      <NavLink to="/" className="logo-container" activeClassName="active-link">
-        <Logo className="logo" />
-      </NavLink>
-      <div className="navigation-items">
-        <NavLink
-          to="/shop"
-          className="navigation-item"
-          activeClassName="active-link"
-        >
-          SHOP
-        </NavLink>
-        <NavLink
-          to="/contact"
-          className="navigation-item"
-          activeClassName="active-link"
-        >
-          CONTACT
-        </NavLink>
+    <HeaderContainer>
+      <LogoContainer to="/">
+        <Logo />
+      </LogoContainer>
+      <NavigationItemsContainer>
+        <NavLinkOption to="/shop">SHOP</NavLinkOption>
+        <NavLinkOption to="/contact">CONTACT</NavLinkOption>
         {currentUser ? (
-          <div className="navigation-item" onClick={() => auth.signOut()}>
+          <NavLinkDiv as="div" onClick={() => auth.signOut()}>
             SIGN OUT
-          </div>
+          </NavLinkDiv>
         ) : (
-          <NavLink
-            to="/auth"
-            className="navigation-item"
-            activeClassName="active-link"
-          >
-            SIGN IN
-          </NavLink>
+          <NavLinkOption to="/auth">SIGN IN</NavLinkOption>
         )}
         <CartIcon clicked={toggleCartVisibility} />
-      </div>
+      </NavigationItemsContainer>
       {cartVisible ? <Cart /> : null}
-    </div>
+    </HeaderContainer>
   );
 };
 
