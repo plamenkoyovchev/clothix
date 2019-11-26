@@ -3,27 +3,32 @@ import { connect } from "react-redux";
 import * as actions from "../../../../store/actions/index";
 
 import "./CollectionPreviewItem.scss";
-
+import {
+  CollectionPreviewItemContainer,
+  PreviewImage,
+  CollectionPreviewItemFooter,
+  CollectionPreviewItemFooterName,
+  CollectionPreviewItemFooterPrice
+} from "./CollectionPreviewItem.styles";
 import Button from "../../../UI/Button/Button";
 
 const CollectionPreviewItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
   return (
-    <div className="CollectionPreviewItem">
-      <div
-        className="image"
-        style={{
-          backgroundImage: `url(${imageUrl})`
-        }}
-      />
-      <div className="footer">
-        <span className="name"> {name} </span>
-        <span className="price">$ {price} </span>
-      </div>
+    <CollectionPreviewItemContainer>
+      <PreviewImage imageUrl={imageUrl} />
+      <CollectionPreviewItemFooter>
+        <CollectionPreviewItemFooterName>
+          {name}
+        </CollectionPreviewItemFooterName>
+        <CollectionPreviewItemFooterPrice>
+          $ {price}
+        </CollectionPreviewItemFooterPrice>
+      </CollectionPreviewItemFooter>
       <Button clicked={() => addItem(item)} inverted>
         ADD TO CART
       </Button>
-    </div>
+    </CollectionPreviewItemContainer>
   );
 };
 
