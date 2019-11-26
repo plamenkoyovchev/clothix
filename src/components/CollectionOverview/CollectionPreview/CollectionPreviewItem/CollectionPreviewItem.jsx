@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actions from "../../../store/actions/index";
+import * as actions from "../../../../store/actions/index";
 
 import "./CollectionPreviewItem.scss";
 
-import Button from "../../UI/Button/Button";
+import Button from "../../../UI/Button/Button";
 
 const CollectionPreviewItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
