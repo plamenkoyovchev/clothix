@@ -2,16 +2,17 @@ import React from "react";
 import "./Collection.scss";
 
 import { connect } from "react-redux";
-import { createStructuredSelection } from "reselect";
+import { createStructuredSelector } from "reselect";
 import { getShopCollectionOverviewByCategory } from "../../../store/selectors/shopSelector.js";
+
 import CollectionPreviewItem from "../CollectionPreview/CollectionPreviewItem/CollectionPreviewItem";
 
-const Collection = ({ title, items }) => {
+const Collection = ({ collection }) => {
   return (
     <div className="Collection">
-      <h1 className="title">{title}</h1>
+      <h1 className="title">{collection.title}</h1>
       <div className="items">
-        {items.map(item => (
+        {collection.items.map(item => (
           <CollectionPreviewItem key={item.id} item={item} />
         ))}
       </div>
@@ -20,7 +21,7 @@ const Collection = ({ title, items }) => {
 };
 
 const mapStateToProps = (state, props) =>
-  createStructuredSelection({
+  createStructuredSelector({
     collection: getShopCollectionOverviewByCategory(props.match.params.category)
   });
 
