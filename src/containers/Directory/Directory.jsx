@@ -4,16 +4,16 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { getDirectoryItemsSelector } from "../../store/selectors/directorySelector";
 
-import "./Directory.scss";
+import { DirectoryMenuContainer } from "./Directory.styles";
 import MenuItem from "../../components/MenuItem/MenuItem";
 
 const Directory = ({ items }) => {
   return (
-    <div className="directory-menu">
+    <DirectoryMenuContainer>
       {items.map(({ id, ...otherItemsProps }) => (
         <MenuItem key={id} {...otherItemsProps} />
       ))}
-    </div>
+    </DirectoryMenuContainer>
   );
 };
 

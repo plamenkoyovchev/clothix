@@ -8,22 +8,28 @@ import {
   getTotalSumSelector
 } from "../../store/selectors/cartSelector";
 import CheckoutItem from "../../components/ShoppingCart/Checkout/CheckoutItem";
+import {
+  CheckoutPageContainer,
+  CheckoutHeader,
+  HeaderBlock,
+  TotalSumDiv
+} from "./CheckoutPage.styles";
 
 const CheckoutPage = ({ cartItems, totalSum }) => {
   return (
-    <div className="CheckoutPage">
-      <div className="checkout-header">
-        <div className="header-block">Product</div>
-        <div className="header-block">Description</div>
-        <div className="header-block">Quantity</div>
-        <div className="header-block">Price</div>
-        <div className="header-block">Remove</div>
-      </div>
+    <CheckoutPageContainer>
+      <CheckoutHeader>
+        <HeaderBlock>Product</HeaderBlock>
+        <HeaderBlock>Description</HeaderBlock>
+        <HeaderBlock>Quantity</HeaderBlock>
+        <HeaderBlock>Price</HeaderBlock>
+        <HeaderBlock>Remove</HeaderBlock>
+      </CheckoutHeader>
       {cartItems.map(item => (
         <CheckoutItem key={item.id} item={item} />
       ))}
-      <div className="total">TOTAL: ${totalSum}</div>
-    </div>
+      <TotalSumDiv>TOTAL: ${totalSum}</TotalSumDiv>
+    </CheckoutPageContainer>
   );
 };
 

@@ -1,24 +1,29 @@
 import React from "react";
-import "./CartItem.scss";
 
 import { connect } from "react-redux";
 import * as actions from "../../../../store/actions/index";
+import {
+  CartItemContainer,
+  ItemDetails,
+  ItemName,
+  ItemPrice,
+  RemoveButton,
+  ItemImage
+} from "./CartItem.styles";
 
 const CartItem = ({ item, removeItem }) => {
   const { id, imageUrl, name, price, quantity } = item;
   return (
-    <div className="CartItem">
-      <img src={imageUrl} alt={name} />
-      <div className="item-details">
-        <span className="name">{name}</span>
-        <span className="price">
+    <CartItemContainer>
+      <ItemImage imageUrl={imageUrl} name={name} />
+      <ItemDetails>
+        <ItemName>{name}</ItemName>
+        <ItemPrice>
           {quantity} x ${price}
-        </span>
-      </div>
-      <div className="remove-button" onClick={() => removeItem(id)}>
-        &#10008;
-      </div>
-    </div>
+        </ItemPrice>
+      </ItemDetails>
+      <RemoveButton onClick={() => removeItem(id)}>&#10008;</RemoveButton>
+    </CartItemContainer>
   );
 };
 

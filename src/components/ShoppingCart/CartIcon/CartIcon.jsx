@@ -1,16 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { ReactComponent as ShoppingBag } from "../../../assets/images/shopping-bag.svg";
-
 import "./CartIcon.scss";
+import {
+  CartIconContainer,
+  ShoppingBagIcon,
+  ItemCount
+} from "./CartIcon.styles";
 
 const CartIcon = ({ clicked, quantity }) => {
   return (
-    <div className="cart-icon" onClick={clicked}>
-      <ShoppingBag className="shopping-icon" />
-      <span className="item-count">{quantity}</span>
-    </div>
+    <CartIconContainer onClick={clicked}>
+      <ShoppingBagIcon />
+      <ItemCount>{quantity}</ItemCount>
+    </CartIconContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import "./Cart.scss";
+
 import CartItem from "./CartItem/CartItem";
 
 import { connect } from "react-redux";
@@ -10,6 +10,7 @@ import { getCartItemsSelector } from "../../../store/selectors/cartSelector.js";
 import * as actions from "../../../store/actions/index";
 
 import Button from "../../UI/Button/Button";
+import { CartContainer, CartItems, EmptyCartMsg } from "./Cart.styles";
 
 const Cart = ({ cartItems, history, dispatch }) => {
   const navigateToCheckout = () => {
@@ -18,16 +19,16 @@ const Cart = ({ cartItems, history, dispatch }) => {
   };
 
   return (
-    <div className="Cart">
-      <div className="cart-items">
+    <CartContainer>
+      <CartItems>
         {cartItems.length > 0 ? (
           cartItems.map(item => <CartItem key={item.id} item={item} />)
         ) : (
-          <h3 className="empty-cart-msg">Your cart is empty!</h3>
+          <EmptyCartMsg>Your cart is empty!</EmptyCartMsg>
         )}
-      </div>
+      </CartItems>
       <Button clicked={navigateToCheckout}>CHECKOUT</Button>
-    </div>
+    </CartContainer>
   );
 };
 
