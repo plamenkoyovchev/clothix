@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Button.scss";
+import { ButtonContainer } from "./Button.styles";
 
 const Button = ({
   children,
@@ -10,15 +10,14 @@ const Button = ({
   ...otherProps
 }) => {
   return (
-    <button
-      className={`${inverted ? "inverted" : ""} ${
-        isGoogleAuthBtn ? "google-auth" : ""
-      } Button`}
+    <ButtonContainer
+      inverted={inverted}
+      isGoogleAuthBtn={isGoogleAuthBtn}
       {...otherProps}
       onClick={clicked}
     >
       {children}
-    </button>
+    </ButtonContainer>
   );
 };
 
