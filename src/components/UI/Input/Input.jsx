@@ -1,24 +1,20 @@
 import React from "react";
-
-import "./Input.scss";
+import { InputGroupContainer, InputLabel, InputEl } from "./Input.styles";
 
 const Input = ({ type, name, value, required, label, changed }) => {
   return (
-    <div className="group">
-      <label
-        className={`${value.length > 0 ? "shrink" : null} form-input-label`}
-      >
+    <InputGroupContainer>
+      <InputLabel className={value.length > 0 ? "shrink" : ""}>
         {label}
-      </label>
-      <input
-        className="form-input"
+      </InputLabel>
+      <InputEl
         type={type}
         name={name}
         value={value}
         required={required}
         onChange={changed}
       />
-    </div>
+    </InputGroupContainer>
   );
 };
 
