@@ -10,3 +10,7 @@ export {
     removeCheckoutItem
 }
     from './cart';
+
+export {
+    updateCollections
+} from './shop';
