@@ -19,7 +19,7 @@ const Shop = ({ match, updateCollections }) => {
       const collectionsMap = convertCollectionSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
     });
-  }, [updateCollections]);
+  });
 
   return (
     <div>
