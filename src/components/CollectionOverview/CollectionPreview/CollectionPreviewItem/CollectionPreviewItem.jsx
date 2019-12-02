@@ -8,15 +8,15 @@ import {
   PreviewImage,
   CollectionPreviewItemFooter,
   CollectionPreviewItemFooterName,
-  CollectionPreviewItemFooterPrice
+  CollectionPreviewItemFooterPrice,
+  AddToCartButton
 } from "./CollectionPreviewItem.styles";
-import Button from "../../../UI/Button/Button";
 
 const CollectionPreviewItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
   return (
     <CollectionPreviewItemContainer>
-      <PreviewImage imageUrl={imageUrl} />
+      <PreviewImage className="image" imageUrl={imageUrl} />
       <CollectionPreviewItemFooter>
         <CollectionPreviewItemFooterName>
           {name}
@@ -25,9 +25,9 @@ const CollectionPreviewItem = ({ item, addItem }) => {
           $ {price}
         </CollectionPreviewItemFooterPrice>
       </CollectionPreviewItemFooter>
-      <Button clicked={() => addItem(item)} inverted>
+      <AddToCartButton clicked={() => addItem(item)} inverted>
         ADD TO CART
-      </Button>
+      </AddToCartButton>
     </CollectionPreviewItemContainer>
   );
 };

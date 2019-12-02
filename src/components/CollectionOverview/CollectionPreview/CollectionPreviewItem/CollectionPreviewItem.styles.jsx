@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../../../UI/Button/Button";
 
 export const CollectionPreviewItemContainer = styled.div`
   width: 22vw;
@@ -9,7 +10,7 @@ export const CollectionPreviewItemContainer = styled.div`
   position: relative;
 
   &:hover {
-    .Button {
+    button {
       display: flex;
       opacity: 0.85;
     }
@@ -18,14 +19,14 @@ export const CollectionPreviewItemContainer = styled.div`
       opacity: 0.8;
     }
   }
+`;
 
-  .Button {
-    width: 80%;
-    position: absolute;
-    top: 250px;
-    opacity: 0.7;
-    display: none;
-  }
+export const AddToCartButton = styled(Button)`
+  width: 80%;
+  position: absolute;
+  top: 250px;
+  opacity: 0.7;
+  display: none;
 `;
 
 export const PreviewImage = styled.div`
@@ -51,4 +52,5 @@ export const CollectionPreviewItemFooterName = styled.span`
 `;
 export const CollectionPreviewItemFooterPrice = styled.span`
   width: 10%;
+  text-align: right;
 `;
