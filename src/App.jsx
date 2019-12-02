@@ -12,6 +12,8 @@ import Shop from "./containers/Shop/Shop";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 
+import { createStructuredSelector } from "reselect";
+import { getCurrentUserSelector } from "./store/selectors/userSelector";
 import { auth, createUserProfileDocument } from "./shared/utils/firebase-utils";
 
 const App = props => {
@@ -56,11 +58,9 @@ const App = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.user.currentUser
-  };
-};
+const mapStateToProps = createStructuredSelector({
+  currentUser: getCurrentUserSelector
+});
 
 const mapDispatchToProps = dispatch => {
   return {
