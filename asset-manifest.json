@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/clothix/static/css/main.f24aa133.chunk.css",
-    "main.js": "/clothix/static/js/main.d8139ea2.chunk.js",
-    "main.js.map": "/clothix/static/js/main.d8139ea2.chunk.js.map",
+    "main.js": "/clothix/static/js/main.b70d631f.chunk.js",
+    "main.js.map": "/clothix/static/js/main.b70d631f.chunk.js.map",
     "runtime-main.js": "/clothix/static/js/runtime-main.668cec87.js",
     "runtime-main.js.map": "/clothix/static/js/runtime-main.668cec87.js.map",
-    "static/js/2.894fc484.chunk.js": "/clothix/static/js/2.894fc484.chunk.js",
-    "static/js/2.894fc484.chunk.js.map": "/clothix/static/js/2.894fc484.chunk.js.map",
+    "static/js/2.059cbfc0.chunk.js": "/clothix/static/js/2.059cbfc0.chunk.js",
+    "static/js/2.059cbfc0.chunk.js.map": "/clothix/static/js/2.059cbfc0.chunk.js.map",
     "index.html": "/clothix/index.html",
-    "precache-manifest.331a1c22e10add463c134d8251fd5709.js": "/clothix/precache-manifest.331a1c22e10add463c134d8251fd5709.js",
+    "precache-manifest.75a2f60a4da5350b773b360a2e506e3f.js": "/clothix/precache-manifest.75a2f60a4da5350b773b360a2e506e3f.js",
     "service-worker.js": "/clothix/service-worker.js",
     "static/css/main.f24aa133.chunk.css.map": "/clothix/static/css/main.f24aa133.chunk.css.map",
     "static/media/crown.ed28accb.svg": "/clothix/static/media/crown.ed28accb.svg",
@@ -16,8 +16,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.668cec87.js",
-    "static/js/2.894fc484.chunk.js",
+    "static/js/2.059cbfc0.chunk.js",
     "static/css/main.f24aa133.chunk.css",
-    "static/js/main.d8139ea2.chunk.js"
+    "static/js/main.b70d631f.chunk.js"
   ]
 }
