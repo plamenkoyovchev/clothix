@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 
+import { ShopContainer } from "./Shop.styles";
+
+import withSpinner from "../../hoc/withSpinner/withSpinner";
 import CollectionOverview from "../../components/CollectionOverview/CollectionOverview";
 import Collection from "../../components/CollectionOverview/Collection/Collection";
 
@@ -12,20 +15,37 @@ import {
   convertCollectionSnapshotToMap
 } from "../../shared/utils/firebase-utils";
 
+const CollectionOverviewWithSpinner = withSpinner(CollectionOverview);
+const CollectionWithSpinner = withSpinner(Collection);
+
 const Shop = ({ match, updateCollections }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const collectionsRef = firestore.collection("collections");
     collectionsRef.onSnapshot(async snapshot => {
       const collectionsMap = convertCollectionSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
+      setIsLoading(false);
     });
   });
 
   return (
-    <div>
-      <Route exact path={match.path} component={CollectionOverview} />
-      <Route path={`${match.path}/:category`} component={Collection} />
-    </div>
+    <ShopContainer>
+      <Route
+        exact
+        path={match.path}
+        render={props => (
+          <CollectionOverviewWithSpinner isLoading={isLoading} {...props} />
+        )}
+      />
+      <Route
+        path={`${match.path}/:category`}
+        render={props => (
+          <CollectionWithSpinner isLoading={isLoading} {...props} />
+        )}
+      />
+    </ShopContainer>
   );
 };
 
