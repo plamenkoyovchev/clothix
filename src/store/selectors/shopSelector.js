@@ -9,10 +9,10 @@ export const getShopDataSelector = createSelector(
 
 export const getShopCollectionsForPreview = createSelector(
     [getShopDataSelector],
-    shopData => Object.keys(shopData).map(key => shopData[key])
+    shopData => shopData ? Object.keys(shopData).map(key => shopData[key]) : []
 );
 
 export const getShopCollectionOverviewByCategory = (category) => createSelector(
     [getShopDataSelector],
-    collections => collections[category]
+    collections => collections ? collections[category] : null
 );
