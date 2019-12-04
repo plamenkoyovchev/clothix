@@ -52,5 +52,4 @@ export const CollectionPreviewItemFooterName = styled.span`
 `;
 export const CollectionPreviewItemFooterPrice = styled.span`
   width: 10%;
-  text-align: right;
 `;
