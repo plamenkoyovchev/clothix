@@ -16,3 +16,8 @@ export const getShopCollectionOverviewByCategory = (category) => createSelector(
     [getShopDataSelector],
     collections => collections ? collections[category] : null
 );
+
+export const selectIsFetching = createSelector(
+    [shopSelector],
+    shopData => shopData.isFetching
+);

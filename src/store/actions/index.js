@@ -12,5 +12,5 @@ export {
     from './cart';
 
 export {
-    updateCollections
+    fetchCollectionsAsync
 } from './shop';
