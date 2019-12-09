@@ -1,11 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-
 import CartItem from "./CartItem/CartItem";
-
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { getCartItemsSelector } from "../../../store/selectors/cartSelector.js";
 
 import * as actions from "../../../store/actions/index";
 
@@ -32,8 +26,4 @@ const Cart = ({ cartItems, history, dispatch }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  cartItems: getCartItemsSelector
-});
-
-export default withRouter(connect(mapStateToProps)(Cart));
+export default Cart;

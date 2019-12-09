@@ -10,7 +10,7 @@ import { ReactComponent as Logo } from "../../../assets/images/crown.svg";
 
 import { auth } from "../../../shared/utils/firebase-utils";
 import CartIcon from "../../ShoppingCart/CartIcon/CartIcon";
-import Cart from "../../ShoppingCart/Cart/Cart";
+import CartContainer from "../../ShoppingCart/Cart/CartContainer";
 import {
   HeaderContainer,
   LogoContainer,
@@ -37,7 +37,7 @@ const Header = ({ currentUser, cartVisible, toggleCartVisibility }) => {
         )}
         <CartIcon clicked={toggleCartVisibility} />
       </NavigationItemsContainer>
-      {cartVisible ? <Cart /> : null}
+      {cartVisible ? <CartContainer /> : null}
     </HeaderContainer>
   );
 };
