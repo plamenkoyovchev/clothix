@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "537045af5d0279a308dedb98a8396949",
+    "revision": "ac2e012e094444fbf798968f8dca926d",
     "url": "/clothix/index.html"
   },
   {
-    "revision": "68fbbbde67fef4d17b13",
+    "revision": "c2ac96d92da3b9fc0a38",
     "url": "/clothix/static/css/main.f24aa133.chunk.css"
   },
   {
-    "revision": "15a6a3827bdedbd23699",
-    "url": "/clothix/static/js/2.625093ef.chunk.js"
+    "revision": "3e5806ae2cd088142be5",
+    "url": "/clothix/static/js/2.c64af0d1.chunk.js"
   },
   {
-    "revision": "68fbbbde67fef4d17b13",
-    "url": "/clothix/static/js/main.025a9644.chunk.js"
+    "revision": "c2ac96d92da3b9fc0a38",
+    "url": "/clothix/static/js/main.da97ab3f.chunk.js"
   },
   {
     "revision": "b926e96ca7e0b1d900aa",
