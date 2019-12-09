@@ -4,42 +4,24 @@ import { Route } from "react-router-dom";
 import { ShopContainer } from "./Shop.styles";
 
 import withSpinner from "../../hoc/withSpinner/withSpinner";
-import CollectionOverview from "../../components/CollectionOverview/CollectionOverview";
+import CollectionOverviewContainer from "../../components/CollectionOverview/CollectionOverviewContainer";
 import Collection from "../../components/CollectionOverview/Collection/Collection";
 
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import {
-  selectIsFetching,
-  selectCollectionsLoaded
-} from "../../store/selectors/shopSelector.js";
+import { selectCollectionsLoaded } from "../../store/selectors/shopSelector.js";
 
-const CollectionOverviewWithSpinner = withSpinner(CollectionOverview);
 const CollectionWithSpinner = withSpinner(Collection);
 
-const Shop = ({
-  match,
-  isFetchingCollections,
-  collectionsLoaded,
-  fetchCollectionsAsync
-}) => {
+const Shop = ({ match, collectionsLoaded, fetchCollectionsAsync }) => {
   useEffect(() => {
     fetchCollectionsAsync();
   }, [fetchCollectionsAsync]);
 
   return (
     <ShopContainer>
-      <Route
-        exact
-        path={match.path}
-        render={props => (
-          <CollectionOverviewWithSpinner
-            isLoading={isFetchingCollections}
-            {...props}
-          />
-        )}
-      />
+      <Route exact path={match.path} component={CollectionOverviewContainer} />
       <Route
         path={`${match.path}/:category`}
         render={props => (
@@ -51,7 +33,6 @@ const Shop = ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  isFetchingCollections: selectIsFetching,
   collectionsLoaded: selectCollectionsLoaded
 });
 
