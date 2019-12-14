@@ -7,6 +7,12 @@ export const CheckoutPageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 50px auto 0;
+
+  .test-warning {
+    text-align: center;
+    color: red;
+    font-size: 28px;
+  }
 `;
 
 export const CheckoutHeader = styled.div`
