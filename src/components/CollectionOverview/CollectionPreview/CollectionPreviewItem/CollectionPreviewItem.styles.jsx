@@ -68,9 +68,10 @@ export const CollectionPreviewItemFooter = styled.div`
 `;
 
 export const CollectionPreviewItemFooterName = styled.span`
-  width: 90%;
+  width: 70%;
   margin-bottom: 15px;
 `;
 export const CollectionPreviewItemFooterPrice = styled.span`
-  width: 10%;
+  width: 30%;
+  text-align: right;
 `;
