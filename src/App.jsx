@@ -4,13 +4,13 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./store/actions/index";
 
-import "./App.scss";
-
 import Header from "./components/Navigation/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import Shop from "./containers/Shop/Shop";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+
+import { GlobalStyles } from "./GlobalStyles";
 
 import { createStructuredSelector } from "reselect";
 import { getCurrentUserSelector } from "./store/selectors/userSelector";
@@ -42,6 +42,7 @@ const App = props => {
 
   return (
     <div>
+      <GlobalStyles />
       <Header />
       <Switch>
         <Route
