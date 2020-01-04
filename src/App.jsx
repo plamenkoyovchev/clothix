@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Fragment, Suspense, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -12,6 +12,7 @@ import { auth, createUserProfileDocument } from "./shared/utils/firebase-utils";
 
 import Header from "./components/Navigation/Header/Header";
 import Spinner from "./components/UI/Spinner/Spinner";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
 const Shop = React.lazy(() => import("./containers/Shop/Shop"));
@@ -45,23 +46,25 @@ const App = props => {
   }, [setCurrentUser]);
 
   return (
-    <div>
+    <Fragment>
       <GlobalStyles />
       <Header />
-      <Suspense fallback={<Spinner />}>
-        <Switch>
-          <Route
-            path="/auth"
-            render={() =>
-              props.currentUser ? <Redirect to="/" /> : <AuthPage />
-            }
-          />
-          <Route path="/checkout" component={CheckoutPage} />
-          <Route path="/shop" component={Shop} />
-          <Route path="/" component={HomePage} />
-        </Switch>
-      </Suspense>
-    </div>
+      <ErrorBoundary>
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route
+              path="/auth"
+              render={() =>
+                props.currentUser ? <Redirect to="/" /> : <AuthPage />
+              }
+            />
+            <Route path="/checkout" component={CheckoutPage} />
+            <Route path="/shop" component={Shop} />
+            <Route path="/" component={HomePage} />
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
+    </Fragment>
   );
 };
 
