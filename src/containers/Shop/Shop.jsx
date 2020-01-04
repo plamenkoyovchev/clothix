@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import { ShopContainer } from "./Shop.styles";
 
 import CollectionOverviewContainer from "../../components/CollectionOverview/CollectionOverviewContainer";
@@ -15,10 +16,19 @@ const Shop = ({ match, fetchCollectionsAsync }) => {
   }, [fetchCollectionsAsync]);
 
   return (
-    <ShopContainer>
-      <Route exact path={match.path} component={CollectionOverviewContainer} />
-      <Route path={`${match.path}/:category`} component={CollectionContainer} />
-    </ShopContainer>
+    <ErrorBoundary>
+      <ShopContainer>
+        <Route
+          exact
+          path={match.path}
+          component={CollectionOverviewContainer}
+        />
+        <Route
+          path={`${match.path}/:category`}
+          component={CollectionContainer}
+        />
+      </ShopContainer>
+    </ErrorBoundary>
   );
 };
 
