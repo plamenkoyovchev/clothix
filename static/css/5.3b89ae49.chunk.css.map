@@ -1,0 +1,1 @@
+{"version":3,"sources":["SignUp.scss"],"names":[],"mappings":"AAAA,QACI,UAAW,CACX,YAAa,CACb,qBAAsB,CAH1B,eAMQ,aAAc,CANtB,mBAUQ,cAAe","file":"5.3b89ae49.chunk.css","sourcesContent":[".SignUp {\n    width: 25vw;\n    display: flex;\n    flex-direction: column;\n\n    & .title {\n        margin: 10px 0;\n    }\n\n    & .sub-title {\n        font-size: 18px;\n    }\n}"]}
